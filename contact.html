@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="images/logoo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Contact Us - Vimlesh Industries</title>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --copper:       #e79b0d;
+    --copper-dark:  #b87333;
+    --copper-deep:  #8b5a1a;
+    --copper-light: #faeeda;
+    --copper-mid:   #f5c96b;
+    --bg:           #0d0d0d;
+    --bg2:          #141414;
+    --bg3:          #1c1a17;
+    --text:         #f0ece4;
+    --text-muted:   #a09880;
+    --border:       rgba(231,155,13,0.18);
+    --hdr-h: 72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-top: var(--hdr-h);
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    height: var(--hdr-h);
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .brand__logo { height: 36px; width: auto; }
+  .brand__name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .brand__name span { color: var(--copper); }
+
+  .desktop-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .desktop-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .desktop-nav a:hover,
+  .desktop-nav a.active { color: var(--copper); }
+
+  .btn-brochure {
+    background: transparent;
+    color: var(--copper) !important;
+    border: 1px solid var(--copper);
+    padding: 7px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-brochure:hover {
+    background: var(--copper);
+    color: #000 !important;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--text);
+    transition: 0.3s;
+  }
+  .mobile-nav { display: none; }
+
+  /* ─── HERO SECTION ─── */
+  .contact-hero {
+    position: relative;
+    padding: 100px 48px 80px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(231,155,13,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(231,155,13,0.1);
+    border: 1px solid var(--border);
+    color: var(--copper);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow i { font-size: 10px; }
+
+  .contact-hero h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .contact-hero h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--copper), var(--copper-mid));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-hero p {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ─── DIVIDER LINE ─── */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--copper);
+    margin: 32px auto;
+    border-radius: 2px;
+  }
+
+  /* ─── CONTACT CARDS GRID ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .contact-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--copper), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .contact-card:hover {
+    border-color: rgba(231,155,13,0.45);
+    transform: translateY(-3px);
+  }
+  .contact-card:hover::before { opacity: 1; }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: rgba(231,155,13,0.1);
+    border: 1px solid rgba(231,155,13,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--copper);
+    margin-bottom: 24px;
+  }
+
+  .contact-card h3 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 12px;
+  }
+
+  .contact-card .card-content {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .contact-card .card-content a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-card .card-content a:hover { color: var(--copper); }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    text-align: center;
+    padding: 0 48px 100px;
+  }
+
+  .cta-inner {
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-inner::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  }
+
+  .cta-inner h2 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .cta-inner p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--copper);
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 0 rgba(231,155,13,0);
+  }
+  .btn-cta:hover {
+    background: var(--copper-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(231,155,13,0.3);
+  }
+  .btn-cta i { font-size: 16px; }
+
+  .cta-note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+    padding: 60px 48px 30px;
+  }
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-col h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--copper); }
+  .footer-col p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .footer-col p i { color: var(--copper); margin-right: 8px; }
+  .footer-col p a { color: var(--text-muted); text-decoration: none; }
+  .footer-col p a:hover { color: var(--copper); }
+
+  .footer-bottom {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 768px) {
+    .site-header { padding: 0 20px; }
+    .desktop-nav { display: none; }
+    .menu-toggle { display: flex; }
+
+    .mobile-nav {
+      display: block;
+      position: fixed;
+      top: var(--hdr-h);
+      left: 0; right: 0;
+      background: rgba(13,13,13,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      z-index: 999;
+      text-align: center;
+    }
+    .mobile-nav.open { max-height: 80vh; }
+    .mobile-nav ul {
+      list-style: none;
+      padding: 16px 24px 28px;
+      display: grid;
+      gap: 4px;
+    }
+    .mobile-nav a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 12px 8px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-nav a:hover { background: rgba(231,155,13,0.08); color: var(--copper); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .contact-hero { padding: 60px 24px 50px; }
+    .contact-grid { padding: 0 24px 60px; gap: 16px; }
+    .cta-section { padding: 0 24px 70px; }
+    .cta-inner { padding: 40px 28px; }
+    .footer { padding: 50px 24px 24px; }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+
+<!-- ─── HEADER ─── -->
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="images/logoo.png" alt="Vimlesh logo" />
+    <span class="brand__name">Vimlesh Industries pvt. ltd.</span>
+  </a>
+
+  <nav class="desktop-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="infrastructure.html">Infrastructure</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li>
+        <a href="images/cat.pdf" class="btn-brochure" download>
+          Brochure <i class="btn-brochure"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobileMenu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="infrastructure.html">Infrastructure</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="cat.pdf" download>Brochure ↓</a></li>
+  </ul>
+</nav>
+
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="contact-hero">
+  <div class="hero-eyebrow reveal">
+    <i class="fa-solid fa-circle"></i>
+    Get In Touch
+  </div>
+  <h1 class="reveal">Reach Out to<br><em>Vimlesh Industries</em></h1>
+  <p class="reveal">Trusted manufacturer of precision winding wires. We're ready to assist with your requirements.</p>
+  <div class="divider reveal"></div>
+</section>
+
+<!-- ─── CONTACT DETAIL CARDS ─── -->
+<div class="contact-grid">
+
+  <div class="contact-card reveal">
+    <div class="card-icon">
+      <i class="fa-solid fa-location-dot"></i>
+    </div>
+    <h3>Our Location</h3>
+    <div class="card-content">
+      Vimlesh Industries Pvt. Ltd.<br>
+      Hasamabad, Bahalgarh,<br>
+      Delhi Road, Sonipat,<br>
+      Haryana – 131021
+    </div>
+  </div>
+
+  <div class="contact-card reveal">
+    <div class="card-icon">
+      <i class="fa-solid fa-phone"></i>
+    </div>
+    <h3>Phone Number</h3>
+    <div class="card-content">
+      <a href="tel:+911302981520">+0091-130-2981520</a><br>
+      <a href="tel:+919354807889">+91 93548 07889</a>
+    </div>
+  </div>
+
+  <div class="contact-card reveal">
+    <div class="card-icon">
+      <i class="fa-solid fa-envelope"></i>
+    </div>
+    <h3>Email Address</h3>
+    <div class="card-content">
+      <a href="mailto:sales@vimlesh.com">sales@vimlesh.com</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <h2>Have a Requirement?</h2>
+    <p>Fill out our enquiry form and our team will get back to you within one business day.</p>
+    <!-- ✏️ Replace the href below with your Google Form link -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSftP3XzoRxCxCTDqYIG_JwU7pyGI1Sj96LAI4qFpqaqYZcB1g/viewform?usp=sharing&ouid=102927620941845281340" class="btn-cta" target="_blank" rel="noopener">
+      Get in Touch <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    <p class="cta-note">We typically respond within 24 hours on business days.</p>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="process.html">Manufacturing Process</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Social Links</h4>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/vimlesh-industries-pvt-ltd---india/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li>
+          <a href="images/cat.pdf" class="btn-brochure" download style="display:inline-flex; margin-top:8px;">
+            Brochure <i class="fa-solid fa-download"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Details</h4>
+      <p><i class="fa-solid fa-location-dot"></i>Vimlesh Industries pvt. Lmt, Hasamabad, Bahalgarh, Sonipat, Haryana
+        Sonipat, Haryana – 131021</p>
+      <p><i class="fa-solid fa-phone"></i>+0091-130-2981520, 9354807889</p>
+      <p><i class="fa-solid fa-envelope"></i><a href="mailto:sales@vimlesh.com">sales@vimlesh.com</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 Vimlesh Industries Pvt. Ltd. – All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const menuBtn   = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileNav.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

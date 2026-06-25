@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products – Vimlesh Industries</title>
+  <meta name="description" content="All our products are manufactured as per International Standards. We offer a selection of dimensions, types of covering and materials for special fields of application.">
+  <meta name="keywords" content="Bare Copper Wire, Bare Copper Tape, Enamelled Copper Wire, Fibreglass Wire, Paper Insulated, Kapton, Nomex, Mica, Aluminium Wire, winding wire">
+  <link rel="icon" type="image/png" href="images/logoo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --copper:      #e79b0d;
+      --copper-glow: rgba(231,155,13,0.18);
+      --copper-mid:  #f5c96b;
+      --bg:          #080808;
+      --bg2:         #111111;
+      --bg3:         #171717;
+      --text:        #f0ece4;
+      --text-muted:  #8a8070;
+      --border:      rgba(231,155,13,0.15);
+      --hdr-h: 80px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── ORIGINAL HEADER – UNCHANGED ─── */
+    :root { --hdr-h-mobile: 64px; --hdr-h-desktop: 80px; --hdr-bg-dark: #ccc; }
+    .site-header, .site-header * { box-sizing: border-box; }
+    .site-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 1000; background: transparent; }
+    .site-header__inner { width: 100%; margin: 0; height: var(--hdr-h-desktop); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; margin-left: 0; }
+    .brand__logo { height: 38px; width: auto; }
+    .brand__name { color: #fff; font-weight: 700; font-size: 34px; justify-content: flex-start; align-items: center; margin-left: 10px; }
+    .desktop-nav ul { display: flex; gap: 20px; list-style: none; }
+    .desktop-nav a { color: #fff; text-decoration: none; font-weight: 500; }
+    .desktop-nav a:hover { text-decoration: underline; }
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+    .menu-toggle span { display: block; width: 26px; height: 3px; background: #fff; transition: .3s; }
+    .mobile-nav { display: none; }
+    @media (max-width: 768px) {
+      .site-header { position: absolute; top: 0; left: 0; background: var(--hdr-bg-dark); box-shadow: 0 2px 10px rgba(178,118,27,0.557); }
+      .site-header__inner { height: var(--hdr-h-mobile); }
+      body { padding-top: var(--hdr-h-mobile); }
+      .brand__name { font-size: 16px; }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .mobile-nav { display: block; position: fixed; top: var(--hdr-h-mobile); left: 0; right: 0; background: var(--hdr-bg-dark); overflow: hidden; max-height: 0; transition: max-height .35s ease; text-align: center;}
+      .mobile-nav.open { max-height: 80vh; }
+      .mobile-nav ul { list-style: none; padding: 14px 16px 22px; display: grid; gap: 12px; }
+      .mobile-nav a { color: #fff; text-decoration: none; font-size: 16px; padding: 10px 6px; display: block; border-radius: 8px; }
+      .mobile-nav a:hover { background: rgba(255,255,255,.08); }
+      .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+    .btn-brochure { background: #e79b0db8; color: #fff !important; padding: 8px 14px; border-radius: 6px; font-weight: 600; text-decoration: none; transition: background 0.3s; }
+    .btn-brochure:hover { background: #e79b0d; }
+    .btn-brochure .arrow { margin-left: 8px; font-size: 18px; }
+
+    /* ─── HERO SECTION ─── */
+    .products-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/inf.jpeg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.22) saturate(0.6);
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgba(231,155,13,0.14) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(8,8,8,0) 50%, rgba(8,8,8,1) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(231,155,13,0.1);
+      border: 1px solid var(--border);
+      color: var(--copper);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .products-hero h1 {
+      font-size: clamp(38px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .products-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(100deg, var(--copper) 20%, var(--copper-mid) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .products-hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--copper);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    .hero-scroll i { font-size: 18px; color: var(--copper); }
+    @keyframes pulse { 0%,100%{opacity:0.5;transform:translateX(-50%) translateY(0)} 50%{opacity:1;transform:translateX(-50%) translateY(4px)} }
+
+    /* ─── PRODUCTS SECTION ─── */
+    .products-section {
+      padding: 80px 40px 100px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+    .section-label span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.28s, transform 0.28s;
+      cursor: pointer;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+      opacity: 0;
+      transition: opacity 0.28s;
+    }
+
+    .product-card:hover {
+      border-color: rgba(231,155,13,0.5);
+      transform: translateY(-5px);
+    }
+    .product-card:hover::before { opacity: 1; }
+
+    .card-img {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      background: #0e0e0e;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+      filter: brightness(0.85) saturate(0.9);
+    }
+
+    .product-card:hover .card-img img {
+      transform: scale(1.06);
+      filter: brightness(1) saturate(1.1);
+    }
+
+    .card-num {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(8,8,8,0.75);
+      border: 1px solid var(--border);
+      color: var(--copper);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+    }
+
+    .card-body {
+      padding: 22px 22px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-body h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--copper);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+    .card-link i { font-size: 13px; transition: transform 0.2s; }
+    .product-card:hover .card-link { gap: 10px; }
+    .product-card:hover .card-link i { transform: translateX(3px); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── BACK TO TOP ─── */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--copper);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 500;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(231,155,13,0.4);
+    }
+    #backToTop:hover { background: var(--copper-mid); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      border-top: 1px solid var(--border);
+      background: #0d0d0d;
+      padding: 60px 48px 30px;
+    }
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--copper); }
+    .footer-col p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 10px; }
+    .footer-col p i { color: var(--copper); margin-right: 8px; }
+    .footer-col p a { color: var(--text-muted); text-decoration: none; }
+    .footer-col p a:hover { color: var(--copper); }
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .products-section { padding: 60px 20px 80px; }
+      .hero-stats { gap: 24px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .footer { padding: 48px 24px 24px; }
+    }
+  </style>
+</head>
+
+<!-- ─── HEADER (ORIGINAL – UNTOUCHED) ─── -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="images/logoo.png" alt="Vimlesh logo" />
+      <span class="brand__name">Vimlesh Industries Pvt. Ltd.</span>
+    </a>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="images/cat.pdf" class="btn-brochure" download>
+            Brochure<span class="arrow">↓</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="infrastructure.html">Infrastructure</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="images/cat.pdf" class="btn-brochure" download>
+          Brochure<span class="arrow">↓</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="products-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <i class="fa-solid fa-industry" style="font-size:10px;"></i>
+      Manufactured to International Standards
+    </div>
+    <h1 class="reveal">Our <em>Products</em></h1>
+    <p class="reveal">Precision winding wires crafted using the latest continuous extrusion technology — bright annealed, dust-free, and built for demanding applications.</p>
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Product Lines</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">IS</div>
+        <div class="stat-label">Standards</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Cu &amp; Al</div>
+        <div class="stat-label">Materials</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Explore</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ─── PRODUCT CARDS ─── -->
+<section class="products-section">
+  <div class="section-label">
+    <span>All Products</span>
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card reveal">
+      <a href="bare.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/barecopper.png" alt="Bare Copper Wire and Strips">
+          <span class="card-num">01</span>
+        </div>
+        <div class="card-body">
+          <h3>Bare Copper Wire &amp; Strips</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="enamel.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/enamelled.png" alt="Enamelled Round Copper/Aluminium Wire">
+          <span class="card-num">02</span>
+        </div>
+        <div class="card-body">
+          <h3>Enamelled Round Copper / Aluminium Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="alu.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/alu.png" alt="Aluminium Strips and Foils">
+          <span class="card-num">03</span>
+        </div>
+        <div class="card-body">
+          <h3>Aluminium Strips &amp; Foils</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="fibre.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/fibre.JPG" alt="Fibreglass Round and Flat Wire">
+          <span class="card-num">04</span>
+        </div>
+        <div class="card-body">
+          <h3>Fibreglass Round &amp; Flat Copper / Aluminium Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="paper.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/ou.jpg" alt="Paper Covered Round/Rectangular Wire">
+          <span class="card-num">05</span>
+        </div>
+        <div class="card-body">
+          <h3>Paper Covered Round / Rectangular Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="kapton.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/Kapton Cov Strip.JPG" alt="Kapton Covered Wire">
+          <span class="card-num">06</span>
+        </div>
+        <div class="card-body">
+          <h3>Kapton Covered Round / Rectangular / Flat Copper Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="nomex.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/Nomex Covered Strip.jpg" alt="Nomex Covered Wire">
+          <span class="card-num">07</span>
+        </div>
+        <div class="card-body">
+          <h3>Nomex Covered Round / Rectangular / Flat Copper &amp; Aluminium Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="mica.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/mica.jpg" alt="Mica Covered Wire">
+          <span class="card-num">08</span>
+        </div>
+        <div class="card-body">
+          <h3>Mica Covered Round / Rectangular / Flat Copper &amp; Aluminium Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="enamelract.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/Enamelled Strip.JPG" alt="Enamelled Rectangular/Flat Wire">
+          <span class="card-num">09</span>
+        </div>
+        <div class="card-body">
+          <h3>Enamelled Rectangular / Flat Copper &amp; Aluminium Wire</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="auto.html" style="text-decoration:none;display:contents;">
+        <div class="card-img">
+          <img src="images/auto1.png" alt="Automobile Fields">
+          <span class="card-num">10</span>
+        </div>
+        <div class="card-body">
+          <h3>Automobile Fields</h3>
+          <span class="card-link">View Details <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="process.html">Manufacturing Process</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Social Links</h4>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/vimlesh-industries-pvt-ltd---india/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li style="margin-top:10px;">
+          <a href="images/cat.pdf" class="btn-brochure" download>Brochure <span class="arrow">↓</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Details</h4>
+      <p><i class="fa-solid fa-location-dot"></i>Vimlesh Industries pvt. Lmt, Hasamabad, Bahalgarh, Sonipat, Haryana
+        Sonipat, Haryana – 131021</p>
+      <p><i class="fa-solid fa-phone"></i>+0091-130-2981520, 9354807889</p>
+      <p><i class="fa-solid fa-envelope"></i><a href="mailto:sales@vimlesh.com">sales@vimlesh.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Vimlesh Industries Pvt. Ltd. – All Rights Reserved.
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script>
+  // ── Hamburger
+  const menuBtn   = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileNav.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // ── Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── Back to top
+  const topBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    topBtn.style.display = window.scrollY > 200 ? 'flex' : 'none';
+  });
+  topBtn.style.display = 'none';
+  topBtn.style.alignItems = 'center';
+  topBtn.style.justifyContent = 'center';
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
