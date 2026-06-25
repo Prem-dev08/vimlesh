@@ -29,6 +29,8 @@ const heroImages = [
   "images/ju.jpg",
   "images/fibre.jpg",
   "images/Kapton Cov Strip",
+  "images/enamellingplantnew.jpeg",
+  "images/Conformjpeg.jpeg",
 ];
 const menuToggle = document.getElementById("mobile-menu");
 const navList = document.querySelector(".nav-list");

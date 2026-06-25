@@ -325,7 +325,7 @@
         </div>
       </section>
       <script>
-        const heroImages = ["images/building1.jpg", "images/cuuu.jpg", "images/taping.jpg", "images/process2a.jpeg", ];
+        const heroImages = ["images/building1.jpg", "images/cuuu.jpg", "images/taping.jpg", "images/Conformjpeg.jpeg", "images/enamellingplantnew.jpeg" ];
         let currentHeroIndex = 0;
         const heroSection = document.querySelector(".hero");
 
@@ -388,6 +388,10 @@
                   <h3>Enamelled Rectangular/Flat Copper & Aluminium Wire</h3>
                 </div>
                 <div class="card">
+                  <img src="images/CTC.jpeg" alt="product11">
+                  <h3>continously transposed Conductor(CTC)</h3>
+                </div>
+                <div class="card">
                   <img src="images/auto1.png" alt="Product10">
                   <h3>Automobile Fields & Coils</h3>
                 </div>
@@ -422,7 +426,7 @@
                   <div class="highlight">🚚Timely Bulk Delivery</div>
                 </div>
                 <div class="infra-gallery">
-                  <img src="images/enamelling.JPG" alt="Manufacturing Unit">
+                  <img src="images/enamellingplantnew.jpeg" alt="Manufacturing Unit">
                   <img src="images/Fibreglass Section.JPG" alt="Advanced Machines">
                   <img src="images/Kapton Cov Section.JPG" alt="Workforce at Plant">
                 </div>
@@ -500,11 +504,20 @@
               </div>
               <div class="process-step">
                 <div class="process-image">
-                  <img src="images/process2.jpeg" alt="Enamelling section">
+                  <img src="images/enamellinggreen.jpeg" alt="Enamelling section">
                 </div>
                 <div class="process-description">
                   <h3>Enemelling Section</h3>
                   <p>The Enamelling Section at Vimlesh Industries is a dedicated production line where bare copper and aluminium conductors are transformed into high-quality magnet wires through a precision enamelling process. This section is equipped with modern enamelling machines, multi-zone curing ovens, and automated handling systems to ensure consistency, durability, and compliance with international insulation standards.</p>
+                </div>
+              </div>
+              <div class="process-step reverse">
+                <div class="process-image">
+                  <img src="images/CTC machine.jpg" alt="CTC">
+                  </div>
+                  <div class="process-description">
+                    <h3>CTC (Continously Transposed Conductor) Machine</h3>
+                    <p>The CTC (Continuously Transposed Cable) Machine is a high-precision manufacturing equipment used to produce Continuously Transposed Cables used in power transformers and large electrical machines. The machine takes multiple individually enamelled rectangular copper strips and continuously transposes them in a precise pattern to form a single compact cable bundle. This transposition process ensures uniform current distribution across all strands, which greatly reduces eddy current losses and improves the efficiency of the final transformer or motor.</p>
                 </div>
               </div>
             </section>
@@ -698,7 +711,7 @@
               <div class="quality-gallery">
                 <img src="images/labtesting.jpeg" alt="Lab Testing">
                 <img src="images/LABB.png" alt="Quality Control">
-                <img src="images/is.jpg" alt="ISO Certificate">
+                <img src="images/iso.png" alt="ISO Certificate">
                 
               </div>
           </div>
@@ -725,7 +738,7 @@
                 <p class="desc">Mr. Anuj Talwar, an engineer with immense determination, knowledge and valuable experience is leading us to integrate technological advancements in our company.</p>
               </div>
               <div class="team-member">
-                <img src="images/s2.jpeg" alt="Team Member 3">
+                <img src="images/skandnew.jpeg" alt="Team Member 3">
                 <h3>Skand Kumar</h3>
                 <p class="role">Head of Marketing and operations</p>
                 <p class="desc">With over 21 years of experience, Mr.Skand brings unparalleled expertise in driving business growth, optimising operations, and building impactful marketing strategies.</p>
@@ -1424,13 +1437,51 @@
           <p><i class="fa-solid fa-phone"></i>+0091-130-2981520, 9354807889</p>
           <p><i class="fa-solid fa-envelope"></i><a href="mailto:sales@vimlesh.com">sales@vimlesh.com</a></p>
         </div>
-      </div>
+        <div class="footer-col">
+          <h4>Certifications</h4>
+          <div class="footer-cert-logos">
+            <img src="images/inter.jpeg" alt="Intertek ISO 9001 NABCB" class="footer-cert-img">
+            <img src="images/iso45001.jpeg" alt="ISO 45001 Certified" class="footer-cert-img">
+            <image src="images/UL.jpeg" alt="UL certified" class="footer-cert-img">
+          </div>
+        </div>
     
+      </div>
+     
       <div class="footer-bottom">
         <p>&copy; 2026 Vimlesh Industries Pvt. Ltd. – All Rights Reserved.</p>
       </div>
+    </div>
     </footer>
+    <style>
+    .footer-cert-logos {
+      display: flex;
+      flex-direction: row;   /* side by side */
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
     
+    .footer-cert-img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 8px;
+      padding: 5px;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="script - Copy.js"></script>
