@@ -517,7 +517,7 @@
                   </div>
                   <div class="process-description">
                     <h3>CTC (Continously Transposed Conductor) Machine</h3>
-                    <p>The CTC (Continuously Transposed Cable) Machine is a high-precision manufacturing equipment used to produce Continuously Transposed Cables used in power transformers and large electrical machines. The machine takes multiple individually enamelled rectangular copper strips and continuously transposes them in a precise pattern to form a single compact cable bundle. This transposition process ensures uniform current distribution across all strands, which greatly reduces eddy current losses and improves the efficiency of the final transformer or motor.</p>
+                    <p>The CTC (Continuously Transposed Conductor) Machine is a high-precision manufacturing equipment used to produce Continuously Transposed Conductor used in power transformers and large electrical machines. The machine takes multiple individually enamelled rectangular copper strips and continuously transposes them in a precise pattern to form a single compact cable bundle. This transposition process ensures uniform current distribution across all strands, which greatly reduces eddy current losses and improves the efficiency of the final transformer or motor.</p>
                 </div>
               </div>
             </section>
@@ -709,13 +709,76 @@
                 <div class="quality-box">🔬 Precision Measurement Tools</div>
               </div>
               <div class="quality-gallery">
-                <img src="images/labtesting.jpeg" alt="Lab Testing">
-                <img src="images/LABB.png" alt="Quality Control">
-                <img src="images/iso.png" alt="ISO Certificate">
-                
+                <div class="quality-cert">
+                  <img src="images/iso.png" alt="ISO Certificate">
+                </div>
+                <div class="quality-labs">
+                  <img src="images/labtesting.jpeg" alt="Lab Testing">
+                  <img src="images/LABB.png" alt="Quality Control">
+                </div>
               </div>
           </div>
         </section>
+        <style>
+          .quality-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.quality-cert img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(231, 155, 13, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quality-labs {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.quality-labs img {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(231, 155, 13, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quality-cert img:hover,
+.quality-labs img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(231, 155, 13, 0.75);
+}
+.quality-cert {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .quality-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-cert img {
+    height: 320px;
+  }
+
+  .quality-labs img {
+    height: 200px;
+  }
+}
+        </style>
         <section id="about" class="about-section">
           <h2>About Us</h2>
           <p> Founded in 1986 in Sonepat (Haryana), India, Vimlesh Industries Pvt. Ltd. is a leading manufacture of Bare, Enamelled, Paper Covered, Fibreglass Covered, Cotton Covered, Kapton Covered, Nomex Covered, Mica Covered Round & Rectangular Wires of Copper & Aluminium for use in Electrical Power Equipments & Appliances Industries.Being an ISO-9001:2015 certified company. We have reputation of supplying quality products to reputed OEMs of Electrical Equipments with good presence in overseas market by exporting to various Countries of Europe, Asia and Africa.Company’s entire products are manufactured as per International Standards and specifications given by the customer. We have most modern facilities for processing bulk orders for our entire range of products.The company is currently growing at 25% on year to year basis and selling around 3600 tons material /annum with Annual Sales Turnover around USD 20 Million.We at Vimlesh Industries strive towards creating highest customer value by serving our customers with quality products while ensuring quicker on time delivery. </p>
